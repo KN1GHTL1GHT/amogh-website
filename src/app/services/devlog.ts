@@ -34,7 +34,7 @@ export class DevlogService {
         <p>A simple 2D platformer with unique mechanics. The goal is to learn the fundamentals while creating something playable.</p>
 
         <h3>Progress So Far</h3>
-        <img src="ai_self_image.png" alt="MyPicture">
+        <img src="/ai_self_image.png" alt="MyPicture">
         <ul>
           <li>Set up the project structure</li>
           <li>Created basic player movement</li>
