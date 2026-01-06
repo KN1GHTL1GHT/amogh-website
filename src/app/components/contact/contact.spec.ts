@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NasaData } from './nasa-data';
+import { Contact } from './contact';
 
-describe('NasaData', () => {
-  let component: NasaData;
-  let fixture: ComponentFixture<NasaData>;
+describe('Contact', () => {
+  let component: Contact;
+  let fixture: ComponentFixture<Contact>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NasaData]
+      imports: [Contact]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(NasaData);
+    fixture = TestBed.createComponent(Contact);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

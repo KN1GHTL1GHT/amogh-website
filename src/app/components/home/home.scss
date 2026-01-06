@@ -1,0 +1,117 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: #f6f3e4;
+  background-image: url('/assets/website_background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+
+  .hero-content {
+    text-align: center;
+    color: #35605A;
+    z-index: 1;
+    padding: 9rem 0 0 25rem;
+
+    .hero-title {
+      font-size: clamp(9rem, 8vw, 6rem);
+      font-weight: 700;
+      margin: 0;
+      background: #35605A;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(3rem, 3vw, 2rem);
+      color: #2F6C61;
+      margin: 1rem 0;
+      animation: fadeInUp 1s ease-out 0.2s both;
+    }
+
+    .hero-description {
+      font-size: clamp(1.5rem, 2vw, 1.2rem);
+      color: #2F6C61;
+      max-width: 700px;
+      margin: 1.5rem auto 0;
+      line-height: 1.6;
+      animation: fadeInUp 1s ease-out 0.4s both;
+    }
+
+    .external-links {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      justify-content: center;
+      animation: fadeInUp 1s ease-out 0.6s both;
+
+      .link-button {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.875rem 1.75rem;
+        background: #35605A;
+        color: #f6f3e4;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        fa-icon {
+          font-size: 1.3rem;
+        }
+
+        &:hover {
+          background: #31E981;
+          color: #00120B;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        &:active {
+          transform: translateY(0);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes flash {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}

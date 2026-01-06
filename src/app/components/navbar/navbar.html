@@ -1,0 +1,54 @@
+<nav [class.expanded]="isExpanded">
+  <div class="cube-trigger" (click)="toggleMenu()" (mouseenter)="onCubeHover(true)" (mouseleave)="onCubeHover(false)" [class.expanding]="isExpanding" [class.collapsing]="cubeCollapsing">
+    <!-- 3D Cube for rotation (hidden during expansion) -->
+    <div class="cube-container" [class.rotating]="!isExpanded && !isExpanding && !cubeCollapsing && !isCollapsing" [class.paused]="rotationPaused" [class.hidden]="isExpanding || cubeExpanded">
+      <div class="cube-face front">
+        <span class="initials">AP</span>
+      </div>
+      <div class="cube-face back">
+        <span class="initials">AP</span>
+      </div>
+      <div class="cube-face left">
+        <fa-icon [icon]="faChessKnight"></fa-icon>
+      </div>
+      <div class="cube-face right">
+        <fa-icon [icon]="faChessKnight"></fa-icon>
+      </div>
+      <div class="cube-face top"></div>
+    </div>
+
+    <!-- Isometric cube for expansion (shown during expansion, no content) -->
+    <div class="isometric-cube" [class.expanding-iso]="isExpanding" [class.expanded-iso]="cubeExpanded && !isExpanding && !cubeCollapsing" [class.collapsing-iso]="cubeCollapsing"></div>
+  </div>
+
+  <ul [class.show]="isExpanded">
+    <li style="--i:4;">
+      <a routerLink="/" (click)="toggleMenu()">
+        <fa-icon [icon]="faHome"></fa-icon>
+        <span>HOME</span>
+      </a>
+    </li>
+    <li style="--i:3;">
+      <a routerLink="/about" (click)="toggleMenu()">
+        <fa-icon [icon]="faUser"></fa-icon>
+        <span>ABOUT</span>
+      </a>
+    </li>
+    <li style="--i:2;">
+      <a routerLink="/portfolio" (click)="toggleMenu()">
+        <fa-icon [icon]="faLaptopCode"></fa-icon>
+        <span>PORTFOLIO</span>
+      </a>
+    </li>
+    <li style="--i:1;">
+      <a routerLink="/contact" (click)="toggleMenu()">
+        <fa-icon [icon]="faEnvelope"></fa-icon>
+        <span>CONTACT</span>
+      </a>
+    </li>
+  </ul>
+
+  <div class="collapse-btn" *ngIf="isExpanded" (click)="toggleMenu()">
+    <fa-icon [icon]="faArrowTurnUp"></fa-icon>
+  </div>
+</nav>
