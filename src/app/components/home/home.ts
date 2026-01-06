@@ -16,6 +16,7 @@ export class Home implements OnInit {
   faGithub = faGithub;
   faLinkedin = faLinkedin;
   faEnvelope = faEnvelope;
+  backgroundImage = 'assets/website_background.jpg';
 
   ngOnInit(): void {
     // Component initialization
