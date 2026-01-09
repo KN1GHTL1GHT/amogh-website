@@ -1,1 +1,127 @@
-<p>contact works!</p>
+<div class="contact-container">
+  <div class="contact-header">
+    <h1 class="contact-title">Get In Touch</h1>
+    <p class="contact-subtitle">Have a question or want to work together? Drop me a message!</p>
+  </div>
+
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+
+    <!-- Name Field -->
+    <div class="form-group">
+      <label for="name" class="form-label">Your Name *</label>
+      <input
+        type="text"
+        id="name"
+        formControlName="name"
+        class="form-input"
+        [class.invalid]="name?.invalid && name?.touched"
+        placeholder="John Doe"
+        aria-required="true"
+        aria-describedby="name-error"
+      />
+      <div
+        *ngIf="name?.invalid && name?.touched"
+        class="error-message"
+        id="name-error"
+        role="alert"
+      >
+        <span *ngIf="name?.errors?.['required']">Name is required</span>
+        <span *ngIf="name?.errors?.['minlength']">Name must be at least 2 characters</span>
+      </div>
+    </div>
+
+    <!-- Reason Dropdown -->
+    <div class="form-group">
+      <label for="reason" class="form-label">Reason for Contact *</label>
+      <div class="select-wrapper">
+        <select
+          id="reason"
+          formControlName="reason"
+          class="form-select"
+          [class.invalid]="reason?.invalid && reason?.touched"
+          aria-required="true"
+          aria-describedby="reason-error"
+        >
+          <option value="" disabled selected>Select a reason...</option>
+          <option *ngFor="let option of inquiryReasons" [value]="option">
+            {{ option }}
+          </option>
+        </select>
+      </div>
+      <div
+        *ngIf="reason?.invalid && reason?.touched"
+        class="error-message"
+        id="reason-error"
+        role="alert"
+      >
+        Please select a reason for contacting
+      </div>
+    </div>
+
+    <!-- Message Field -->
+    <div class="form-group">
+      <label for="message" class="form-label">Your Message *</label>
+      <textarea
+        id="message"
+        formControlName="message"
+        class="form-textarea"
+        [class.invalid]="message?.invalid && message?.touched"
+        placeholder="Tell me about your project, question, or idea..."
+        rows="6"
+        aria-required="true"
+        aria-describedby="message-error"
+      ></textarea>
+      <div
+        *ngIf="message?.invalid && message?.touched"
+        class="error-message"
+        id="message-error"
+        role="alert"
+      >
+        <span *ngIf="message?.errors?.['required']">Message is required</span>
+        <span *ngIf="message?.errors?.['minlength']">Message must be at least 10 characters</span>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button
+      type="submit"
+      class="submit-button"
+      [disabled]="isSubmitting()"
+      [class.submitting]="isSubmitting()"
+    >
+      <span class="button-content">
+        <!-- Loading animation trigger: isSubmitting() - Replace fa-spin with custom animation later -->
+        <fa-icon [icon]="faPaperPlane" [class.fa-spin]="isSubmitting()"></fa-icon>
+        <span>{{ isSubmitting() ? 'Sending...' : 'Send Message' }}</span>
+      </span>
+    </button>
+
+  </form>
+
+  <!-- Success Message -->
+  <div
+    *ngIf="showSuccess()"
+    class="alert alert-success"
+    role="alert"
+  >
+    <fa-icon [icon]="faCheck"></fa-icon>
+    <div class="alert-content">
+      <strong>Success!</strong>
+      <p>Your message has been sent. I'll get back to you soon!</p>
+    </div>
+  </div>
+
+  <!-- Error Message -->
+  <div
+    *ngIf="showError()"
+    class="alert alert-error"
+    role="alert"
+  >
+    <fa-icon [icon]="faExclamationTriangle"></fa-icon>
+    <div class="alert-content">
+      <strong>Oops!</strong>
+      <p>{{ errorMessage() }}</p>
+    </div>
+  </div>
+
+</div>
