@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -12,13 +12,9 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './home.html',
   styleUrls: ['./home.scss']
 })
-export class Home implements OnInit {
+export class Home {   // renamed for clarity
   faGithub = faGithub;
   faLinkedin = faLinkedin;
   faEnvelope = faEnvelope;
   backgroundImage = 'assets/website_background.jpg';
-
-  ngOnInit(): void {
-    // Component initialization
-  }
 }

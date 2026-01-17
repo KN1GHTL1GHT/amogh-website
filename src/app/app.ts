@@ -5,10 +5,11 @@ import { Navbar } from './components/navbar/navbar';
 
 @Component({
   selector: 'app-root',
+  standalone: true,                 // ensure this is a standalone component
   imports: [RouterOutlet, Navbar, FontAwesomeModule],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrls: ['./app.scss']
 })
-export class App {
+export class App {          // renamed for clarity
   protected readonly title = signal('amogh-website');
 }

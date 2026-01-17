@@ -11,7 +11,7 @@ import { environment } from '../../../environments/environment';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, FontAwesomeModule],
   templateUrl: './contact.html',
-  styleUrl: './contact.scss'
+  styleUrls: ['./contact.scss']  // <-- fixed typo
 })
 export class Contact {
   // FontAwesome icons

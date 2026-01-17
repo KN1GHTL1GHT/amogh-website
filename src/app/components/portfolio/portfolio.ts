@@ -8,7 +8,7 @@ import { DevlogService, DevlogSummary } from '../../services/devlog';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './portfolio.html',
-  styleUrl: './portfolio.scss'
+  styleUrls: ['./portfolio.scss']   // <-- fixed
 })
 export class Portfolio implements OnInit {
   devlogs: DevlogSummary[] = [];

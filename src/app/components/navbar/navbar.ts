@@ -7,9 +7,10 @@ import { faHome, faUser, faEnvelope, faChessKnight, faLaptopCode, faArrowTurnUp 
 
 @Component({
   selector: 'app-navbar',
+  standalone: true, // <-- important
   imports: [RouterModule, CommonModule, FontAwesomeModule],
   templateUrl: './navbar.html',
-  styleUrl: './navbar.scss'
+  styleUrls: ['./navbar.scss']
 })
 export class Navbar implements AfterViewInit, OnDestroy {
   menuOpen = false;

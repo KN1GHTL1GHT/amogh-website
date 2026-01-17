@@ -1,14 +1,16 @@
-import { Component, OnInit, AfterViewInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewEncapsulation, inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { DevlogService, DevlogDetail as DevlogDetailType } from '../../services/devlog';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-devlog-detail',
+  standalone: true, // <-- added
   imports: [CommonModule, RouterModule],
   templateUrl: './devlog-detail.html',
-  styleUrl: './devlog-detail.scss',
+  styleUrls: ['./devlog-detail.scss'], // <-- fixed
   encapsulation: ViewEncapsulation.None
 })
 export class DevlogDetail implements OnInit, AfterViewInit {
@@ -16,12 +18,13 @@ export class DevlogDetail implements OnInit, AfterViewInit {
   sanitizedContent?: SafeHtml;
   notFound = false;
   lightboxImage: string | null = null;
+  private platformId = inject(PLATFORM_ID);
 
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private devlogService: DevlogService,
-    private sanitizer: DomSanitizer
+      private route: ActivatedRoute,
+      private router: Router,
+      private devlogService: DevlogService,
+      private sanitizer: DomSanitizer
   ) {}
 
   ngOnInit() {
@@ -31,8 +34,6 @@ export class DevlogDetail implements OnInit, AfterViewInit {
       this.devlog = this.devlogService.getDevlogBySlug(slug);
 
       if (this.devlog) {
-        // Bypass sanitization to allow iframes (for YouTube embeds, etc.)
-        // Note: Only use trusted content in devlogs
         this.sanitizedContent = this.sanitizer.bypassSecurityTrustHtml(this.devlog.content);
       } else {
         this.notFound = true;
@@ -43,7 +44,8 @@ export class DevlogDetail implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    // Add click listeners to all images in the content
+    if (!isPlatformBrowser(this.platformId)) return;
+
     setTimeout(() => {
       const images = document.querySelectorAll('.devlog-content img');
       images.forEach((img) => {
@@ -51,7 +53,6 @@ export class DevlogDetail implements OnInit, AfterViewInit {
           const target = e.target as HTMLImageElement;
           this.openLightbox(target.src);
         });
-        // Add pointer cursor to indicate clickability
         (img as HTMLElement).style.cursor = 'pointer';
       });
     }, 0);
