@@ -120,7 +120,7 @@ nav {
   // Stay expanded
   &.expanded-iso {
     width: 150px;
-    height: 240px;
+    height: 300px;
   }
 
   // Collapse animation
@@ -136,13 +136,13 @@ nav {
 
 @keyframes expandIsoHeight {
   from { height: 55px; }
-  to { height: 240px; }
+  to { height: 300px; }
 }
 
 @keyframes collapseIso {
   from {
     width: 150px;
-    height: 240px;
+    height: 300px;
   }
   to {
     width: 50px;

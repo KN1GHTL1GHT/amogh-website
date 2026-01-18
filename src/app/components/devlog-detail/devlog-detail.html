@@ -1,7 +1,7 @@
 <div class="devlog-detail-container" *ngIf="devlog && !notFound">
   <div class="devlog-detail-header">
     <button class="back-button" (click)="goBack()">
-      ← Back to Portfolio
+      ← Back to Devlogs
     </button>
     <h1>{{ devlog.title }}</h1>
     <div class="devlog-meta">
@@ -18,7 +18,7 @@
 <div class="not-found" *ngIf="notFound">
   <h1>Devlog Not Found</h1>
   <p>Sorry, we couldn't find the devlog you're looking for.</p>
-  <button class="back-button" (click)="goBack()">← Back to Portfolio</button>
+  <button class="back-button" (click)="goBack()">← Back to Devlogs</button>
 </div>
 
 <!-- Image Lightbox -->

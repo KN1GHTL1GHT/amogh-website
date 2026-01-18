@@ -41,6 +41,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/amogh-website/",
               "budgets": [
                 {
                   "type": "initial",

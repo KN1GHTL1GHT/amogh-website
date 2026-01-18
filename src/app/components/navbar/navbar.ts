@@ -3,7 +3,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faHome, faUser, faEnvelope, faChessKnight, faLaptopCode, faArrowTurnUp } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faUser, faEnvelope, faChessKnight, faLaptopCode, faArrowTurnUp, faBook } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navbar',
@@ -29,6 +29,7 @@ export class Navbar implements AfterViewInit, OnDestroy {
   faUser = faUser;
   faChessKnight = faChessKnight;
   faLaptopCode = faLaptopCode;
+  faBook = faBook;
   faEnvelope = faEnvelope;
   faArrowTurnUp = faArrowTurnUp;
 

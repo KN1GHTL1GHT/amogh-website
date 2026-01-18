@@ -1,0 +1,24 @@
+<div class="devlogs-container">
+  <div class="devlogs-header">
+    <h1>Developer Logs</h1>
+    <p class="subtitle">Follow my development journey</p>
+  </div>
+
+  <div class="devlogs-list">
+    <div *ngFor="let devlog of devlogs" class="devlog-card" [routerLink]="['/devlogs', devlog.slug]">
+      <div class="devlog-thumbnail" *ngIf="devlog.thumbnailUrl">
+        <img [src]="devlog.thumbnailUrl" [alt]="devlog.title">
+      </div>
+      <div class="devlog-content">
+        <div class="devlog-header">
+          <h2>{{ devlog.title }}</h2>
+          <span class="devlog-date">{{ devlog.date | date:'MMM d, yyyy' }}</span>
+        </div>
+        <p class="devlog-summary">{{ devlog.summary }}</p>
+        <div class="devlog-tags" *ngIf="devlog.tags && devlog.tags.length > 0">
+          <span class="tag" *ngFor="let tag of devlog.tags">{{ tag }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

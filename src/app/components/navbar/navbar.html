@@ -22,22 +22,28 @@
   </div>
 
   <ul [class.show]="isExpanded">
-    <li style="--i:4;">
+    <li style="--i:5;">
       <a routerLink="/" (click)="toggleMenu()">
         <fa-icon [icon]="faHome"></fa-icon>
         <span>HOME</span>
       </a>
     </li>
-    <li style="--i:3;">
+    <li style="--i:4;">
       <a routerLink="/about" (click)="toggleMenu()">
         <fa-icon [icon]="faUser"></fa-icon>
         <span>ABOUT</span>
       </a>
     </li>
-    <li style="--i:2;">
+    <li style="--i:3;">
       <a routerLink="/portfolio" (click)="toggleMenu()">
         <fa-icon [icon]="faLaptopCode"></fa-icon>
         <span>PORTFOLIO</span>
+      </a>
+    </li>
+    <li style="--i:2;">
+      <a routerLink="/devlogs" (click)="toggleMenu()">
+        <fa-icon [icon]="faBook"></fa-icon>
+        <span>DEVLOGS</span>
       </a>
     </li>
     <li style="--i:1;">

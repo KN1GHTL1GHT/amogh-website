@@ -67,6 +67,6 @@ export class DevlogDetail implements OnInit, AfterViewInit {
   }
 
   goBack() {
-    this.router.navigate(['/portfolio']);
+    this.router.navigate(['/devlogs']);
   }
 }
