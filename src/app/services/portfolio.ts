@@ -12,6 +12,7 @@ export interface PortfolioSummary {
 
 export interface PortfolioDetail extends PortfolioSummary {
   content: string; // Full project details (can be HTML or markdown)
+  projectURL?: string;
 }
 
 @Injectable({
@@ -27,6 +28,7 @@ export class PortfolioService {
       summary: 'Built a full-stack e-commerce platform with payment integration and real-time inventory management.',
       tags: ['Full Stack', 'React', 'Node.js'],
       thumbnailUrl: 'assets/ai_self_image.png',
+      projectURL: 'https://github.com/KN1GHTL1GHT/VacationPlannerPatki',
       content: `
         <h2>Project Overview</h2>
         <p>A fully-featured e-commerce platform built with modern web technologies. This project showcases my full-stack development skills.</p>

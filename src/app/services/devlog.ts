@@ -12,6 +12,7 @@ export interface DevlogSummary {
 
 export interface DevlogDetail extends DevlogSummary {
   content: string; // Full article content (can be HTML or markdown)
+  projectURL?: string;
 }
 
 @Injectable({

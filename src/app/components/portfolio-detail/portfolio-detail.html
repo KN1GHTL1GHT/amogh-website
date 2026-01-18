@@ -10,6 +10,9 @@
         <span class="tag" *ngFor="let tag of project.tags">{{ tag }}</span>
       </div>
     </div>
+    <a *ngIf="project.projectURL" [href]="project.projectURL" target="_blank" rel="noopener noreferrer" class="github-button">
+      View on GitHub →
+    </a>
   </div>
 
   <div class="portfolio-content" [innerHTML]="sanitizedContent"></div>

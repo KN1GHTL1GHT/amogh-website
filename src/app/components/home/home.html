@@ -5,19 +5,31 @@
     <p class="hero-description">
       Creating engaging mobile experiences and interactive games
     </p>
-    <div class="external-links">
-      <a href="https://github.com/KN1GHTL1GHT" target="_blank" rel="noopener noreferrer" class="link-button">
-        <fa-icon [icon]="faGithub"></fa-icon>
-        <span>GitHub</span>
-      </a>
-      <a href="https://linkedin.com/in/amogh-patki" target="_blank" rel="noopener noreferrer" class="link-button">
-        <fa-icon [icon]="faLinkedin"></fa-icon>
-        <span>LinkedIn</span>
-      </a>
-      <a routerLink="/contact" class="link-button">
-        <fa-icon [icon]="faEnvelope"></fa-icon>
-        <span>Contact Me</span>
-      </a>
+    <div class="links-container">
+      <div class="external-links">
+        <a href="https://github.com/KN1GHTL1GHT" target="_blank" rel="noopener noreferrer" class="link-button">
+          <fa-icon [icon]="faGithub"></fa-icon>
+          <span>GitHub</span>
+        </a>
+        <a href="https://linkedin.com/in/amogh-patki" target="_blank" rel="noopener noreferrer" class="link-button">
+          <fa-icon [icon]="faLinkedin"></fa-icon>
+          <span>LinkedIn</span>
+        </a>
+        <a routerLink="/contact" class="link-button">
+          <fa-icon [icon]="faEnvelope"></fa-icon>
+          <span>Contact Me</span>
+        </a>
+      </div>
+      <div class="internal-links">
+        <a routerLink="/portfolio" class="link-button">
+          <fa-icon [icon]="faLaptopCode"></fa-icon>
+          <span>Portfolio</span>
+        </a>
+        <a routerLink="/devlogs" class="link-button">
+          <fa-icon [icon]="faBook"></fa-icon>
+          <span>Devlogs</span>
+        </a>
+      </div>
     </div>
   </div>
 </div>
