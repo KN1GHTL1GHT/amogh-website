@@ -1,0 +1,30 @@
+<div class="portfolio-detail-container" *ngIf="project && !notFound">
+  <div class="portfolio-detail-header">
+    <button class="back-button" (click)="goBack()">
+      ← Back to Portfolio
+    </button>
+    <h1>{{ project.title }}</h1>
+    <div class="portfolio-meta">
+      <span class="portfolio-date">{{ project.date | date:'MMMM d, yyyy' }}</span>
+      <div class="portfolio-tags" *ngIf="project.tags && project.tags.length > 0">
+        <span class="tag" *ngFor="let tag of project.tags">{{ tag }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="portfolio-content" [innerHTML]="sanitizedContent"></div>
+</div>
+
+<div class="not-found" *ngIf="notFound">
+  <h1>Project Not Found</h1>
+  <p>Sorry, we couldn't find the project you're looking for.</p>
+  <button class="back-button" (click)="goBack()">← Back to Portfolio</button>
+</div>
+
+<!-- Image Lightbox -->
+<div class="lightbox-overlay" *ngIf="lightboxImage" (click)="closeLightbox()">
+  <div class="lightbox-content" (click)="$event.stopPropagation()">
+    <button class="lightbox-close" (click)="closeLightbox()">&times;</button>
+    <img [src]="lightboxImage" alt="Full size image">
+  </div>
+</div>

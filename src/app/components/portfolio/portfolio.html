@@ -1,6 +1,24 @@
 <div class="portfolio-container">
   <div class="portfolio-header">
     <h1>Portfolio</h1>
-    <p class="subtitle">Coming soon...</p>
+    <p class="subtitle">My projects and work</p>
+  </div>
+
+  <div class="projects-list">
+    <div *ngFor="let project of projects" class="project-card" [routerLink]="['/portfolio', project.slug]">
+      <div class="project-thumbnail" *ngIf="project.thumbnailUrl">
+        <img [src]="project.thumbnailUrl" [alt]="project.title">
+      </div>
+      <div class="project-content">
+        <div class="project-header">
+          <h2>{{ project.title }}</h2>
+          <span class="project-date">{{ project.date | date:'MMM d, yyyy' }}</span>
+        </div>
+        <p class="project-summary">{{ project.summary }}</p>
+        <div class="project-tags" *ngIf="project.tags && project.tags.length > 0">
+          <span class="tag" *ngFor="let tag of project.tags">{{ tag }}</span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
