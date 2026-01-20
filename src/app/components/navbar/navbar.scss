@@ -15,7 +15,7 @@ $cubeRotationY: 40deg; // Default Y-axis rotation (spin left/right)
 nav {
   position: fixed;
   top: 50px;
-  left: 100px;
+  left: 50px;
   z-index: 2;
 
   // Create positioning context for absolute cube
@@ -256,7 +256,7 @@ li {
 
 li:hover{
   background: $hoverColor;
-  transform: translateX(-50px);
+  transform: translateX(-25px);
 
   a span {
     color: $contentHoverColor;

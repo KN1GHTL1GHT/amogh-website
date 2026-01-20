@@ -1,8 +1,13 @@
 <div class="devlog-detail-container" *ngIf="devlog && !notFound">
   <div class="devlog-detail-header">
-    <button class="back-button" (click)="goBack()">
-      ← Back to Devlogs
-    </button>
+    <div class="header-buttons">
+      <button class="back-button" (click)="goBack()">
+        ← Back to Devlogs
+      </button>
+      <a *ngIf="devlog.projectURL" [href]="devlog.projectURL" target="_blank" rel="noopener noreferrer" class="github-button">
+        View on GitHub →
+      </a>
+    </div>
     <h1>{{ devlog.title }}</h1>
     <div class="devlog-meta">
       <span class="devlog-date">{{ devlog.date | date:'MMMM d, yyyy' }}</span>
@@ -10,9 +15,6 @@
         <span class="tag" *ngFor="let tag of devlog.tags">{{ tag }}</span>
       </div>
     </div>
-    <a *ngIf="devlog.projectURL" [href]="devlog.projectURL" target="_blank" rel="noopener noreferrer" class="github-button">
-      View on GitHub →
-    </a>
   </div>
 
   <div class="devlog-content" [innerHTML]="sanitizedContent"></div>
