@@ -50,6 +50,8 @@
         height: 200px;
         overflow: hidden;
         background: #e0e0e0;
+        align-self: center;
+        margin-left: 1rem;
 
         img {
           width: 100%;
@@ -68,7 +70,6 @@
           display: flex;
           justify-content: space-between;
           align-items: flex-start;
-          margin-bottom: 1rem;
           gap: 1rem;
 
           h2 {
@@ -86,6 +87,18 @@
           }
         }
 
+        .devlog-subheader {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+
+          h3 {
+            font-size: 1.50rem;
+            color: #35605A;
+            margin: 0;
+            font-weight: 600;
+          }
+        }
         .devlog-summary {
           color: #555;
           line-height: 1.6;

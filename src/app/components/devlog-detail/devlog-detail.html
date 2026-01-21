@@ -10,7 +10,7 @@
     </div>
     <h1>{{ devlog.title }}</h1>
     <div class="devlog-meta">
-      <span class="devlog-date">{{ devlog.date | date:'MMMM d, yyyy' }}</span>
+      <span class="devlog-date">{{ devlog.date | date:'MMMM d, yyyy':'UTC' }}</span>
       <div class="devlog-tags" *ngIf="devlog.tags && devlog.tags.length > 0">
         <span class="tag" *ngFor="let tag of devlog.tags">{{ tag }}</span>
       </div>
