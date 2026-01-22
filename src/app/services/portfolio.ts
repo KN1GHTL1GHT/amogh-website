@@ -26,7 +26,7 @@ export class PortfolioService {
       slug: 'vacation-planner-app',
       date: new Date('2025-10-30'),
       summary: 'Built an android vacation planner app with Google ML Kit integration, persistent storage, and Google Cloud API calls.',
-      tags: ['Android', 'Google Cloud', 'Kotlin', 'Google ML Kit'],
+      tags: ['Android', 'Google Cloud', 'Kotlin', 'Google ML Kit', 'Project Link Inside'],
       thumbnailUrl: 'assets/ai_frazzled_traveler.png',
       projectURL: 'https://github.com/KN1GHTL1GHT/VacationPlannerPatki',
       content: `
